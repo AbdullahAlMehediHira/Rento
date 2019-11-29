@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RentO</string>
+    <string name="app_title">Rento তে স্বাগতম!</string>
+    <string name="tenant_button">ভাড়াটিয়া</string>
+    <string name="landlord_button">বাড়ির-মালিক</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="textview_user_signup">নিবন্ধনকৃত না হলে, নিবন্ধন করুন।</string>
+    <string name="textview_user_signin">আপনি যদি ইতিমধ্যে নিবন্ধভুক্ত থাকেন তবে সাইন ইন করুন।</string>
+
+
+</resources>
