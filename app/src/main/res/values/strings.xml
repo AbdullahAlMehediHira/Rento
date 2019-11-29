@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">RentO</string>
     <string name="app_title">Rento তে স্বাগতম!</string>
+    <string name="app_content">একটি বিশ্বস্ত বাড়ি ভাড়া পরিচালনার মাধ্যম</string>
     <string name="tenant_button">ভাড়াটিয়া</string>
     <string name="landlord_button">বাড়ির-মালিক</string>
     <string name="sign_in_button">Sign In</string>
