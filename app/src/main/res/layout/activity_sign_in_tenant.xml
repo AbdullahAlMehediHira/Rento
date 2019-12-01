@@ -46,8 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:inputType="text"
         android:layout_marginTop="40dp"
+        android:inputType="text"
         android:text="@string/textview_user_signup"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 

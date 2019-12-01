@@ -49,6 +49,6 @@
         android:layout_marginTop="40dp"
         android:inputType="text"
         android:text="@string/textview_user_signin"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 </LinearLayout>
