@@ -1,3 +1,3 @@
 # Rento
  Android Application
-Making your life easy@
+Making your life easy!
