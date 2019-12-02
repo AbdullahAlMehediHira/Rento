@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class SignUpLandlord extends AppCompatActivity implements OnClickListener {
 
@@ -88,8 +89,12 @@ public class SignUpLandlord extends AppCompatActivity implements OnClickListener
                     Toast.makeText(getApplicationContext(), "Registration is Successful", Toast.LENGTH_SHORT).show();
 
                 }else{
-                    Toast.makeText(getApplicationContext(), "Registration is notSuccessful", Toast.LENGTH_SHORT).show();
-
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException)
+                    {
+                        Toast.makeText(getApplicationContext(), "User already registered", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Error: "+task.getException(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
