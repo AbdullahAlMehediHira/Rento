@@ -10,6 +10,6 @@ public class TenantProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tenant_profile);
-        this.setTitle("Tenanat Profile");
+        this.setTitle("Tenant Profile");
     }
 }
