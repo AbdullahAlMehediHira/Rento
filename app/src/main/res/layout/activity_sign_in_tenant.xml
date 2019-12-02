@@ -51,5 +51,12 @@
         android:text="@string/textview_user_signup"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:id="@+id/tenantProgressId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

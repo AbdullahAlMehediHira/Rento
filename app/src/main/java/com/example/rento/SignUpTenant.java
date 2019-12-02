@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,10 @@ public class SignUpTenant extends AppCompatActivity implements OnClickListener{
     private EditText SignUpTenantText, SignUpTenantPassword;
     private Button SignUpTenantButton;
     private TextView SignInTenantTextView;
+    private ProgressBar progressBar;
     private FirebaseAuth mAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,7 @@ public class SignUpTenant extends AppCompatActivity implements OnClickListener{
         SignUpTenantPassword = findViewById(R.id.SignUpTenantPasswordId);
         SignUpTenantButton = findViewById(R.id.SignUpTenantButtonId);
         SignInTenantTextView = findViewById(R.id.SignInTenantTextViewId);
+        progressBar = findViewById(R.id.tenantProgressId);
 
         SignUpTenantButton.setOnClickListener(this);
         SignInTenantTextView.setOnClickListener(this);
@@ -82,9 +87,12 @@ public class SignUpTenant extends AppCompatActivity implements OnClickListener{
             SignUpTenantPassword.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
+
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Registration is Successful", Toast.LENGTH_SHORT).show();
 
