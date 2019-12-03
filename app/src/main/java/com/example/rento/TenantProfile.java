@@ -23,20 +23,5 @@ public class TenantProfile extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_layout, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.signOutMenuId) {
-            mAuth.signOut();
-            finish();
-            Intent intant = new Intent(getApplicationContext(), SignInTenant.class);
-            startActivity(intant);
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
