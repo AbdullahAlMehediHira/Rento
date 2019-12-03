@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.947" />
 
     <Button
-        android:id="@+id/tenantbuttonId"
+        android:id="@+id/tenantButtonId"
         android:layout_width="89dp"
         android:layout_height="41dp"
         android:clickable="true"

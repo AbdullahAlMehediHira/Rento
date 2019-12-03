@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".SignInTenant">
 
     <EditText
+        android:id="@+id/SignInLandlordTextId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/SignInLandlordTextId"
         android:layout_gravity="center"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:hint="Email"
-        android:textColorHint="@color/cardview_dark_background"
-        android:textColor="@color/cardview_dark_background"/>
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="@color/cardview_dark_background" />
 
     <EditText
         android:id="@+id/SignInLandlordPasswordId"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -46,17 +46,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:inputType="text"
         android:layout_marginTop="40dp"
+        android:inputType="text"
         android:text="@string/textview_user_signup"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <ProgressBar
-        android:visibility="gone"
-        android:layout_gravity="center"
         android:id="@+id/landlordProgressId"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
 
 </LinearLayout>
