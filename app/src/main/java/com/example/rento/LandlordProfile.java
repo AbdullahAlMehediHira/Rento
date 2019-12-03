@@ -34,6 +34,7 @@ public class LandlordProfile extends AppCompatActivity {
             mAuth.signOut();
             finish();
             Intent intant = new Intent(getApplicationContext(), SignInLandlord.class);
+            startActivity(intant);
         }
         return super.onOptionsItemSelected(item);
     }
