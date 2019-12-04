@@ -33,7 +33,7 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
         mAuth = FirebaseAuth.getInstance();
 
         drawer = findViewById(R.id.draw_landlord_layoutId);
-        navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view_landlord);
         navigationView.setNavigationItemSelectedListener(this);
         toolbar = findViewById(R.id.toolbarId);
         setSupportActionBar(toolbar);

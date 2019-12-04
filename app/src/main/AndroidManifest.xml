@@ -16,7 +16,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".SignUpLandlord" />
         <activity android:name=".SignUpTenant" />
-        <activity android:name=".TenantProfile" />
+        <activity android:name=".TenantProfile"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".SignInLandlord" />
         <activity android:name=".SignInTenant" />
         <activity android:name=".MainActivity">

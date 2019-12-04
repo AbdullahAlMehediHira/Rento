@@ -5,30 +5,29 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_Profile"
+            android:id="@+id/nav_profile_tenant"
             android:icon="@drawable/ic_profile"
             android:title="Profile" />
         <item
-            android:id="@+id/nav_management"
-            android:icon="@drawable/ic_management"
-            android:title="Management" />
+            android:id="@+id/nav_landlord_info_tenant"
+            android:icon="@drawable/ic_landlordinfo"
+            android:title="LandLord Info" />
         <item
-            android:id="@+id/nav_Announcement"
+            android:id="@+id/nav_announcement_tenant"
             android:icon="@drawable/ic_announcement"
             android:title="Announcements" />
+        <item
+            android:id="@+id/nav_payment_tenant"
+            android:icon="@drawable/ic_payment"
+            android:title="Payment" />
 
     </group>
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_message"
+                android:id="@+id/nav_emergency_tenant"
                 android:icon="@drawable/ic_message"
-                android:title="Message" />
-            <item
-                android:id="@+id/nav_alart"
-                android:icon="@drawable/ic_alart"
-                android:title="Alert Tenant" />
+                android:title="Emergency" />
         </menu>
     </item>
-
 </menu>
