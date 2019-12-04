@@ -26,7 +26,7 @@
         <menu>
             <item
                 android:id="@+id/nav_emergency_tenant"
-                android:icon="@drawable/ic_message"
+                android:icon="@drawable/ic_emergency"
                 android:title="Emergency" />
         </menu>
     </item>
