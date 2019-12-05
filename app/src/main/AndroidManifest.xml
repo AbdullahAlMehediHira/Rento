@@ -12,10 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LandlordProfile"></activity>
+        <activity android:name=".LandlordProfile"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".SignUpLandlord" />
         <activity android:name=".SignUpTenant" />
-        <activity android:name=".TenantProfile" />
+        <activity android:name=".TenantProfile"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".SignInLandlord" />
         <activity android:name=".SignInTenant" />
         <activity android:name=".MainActivity">

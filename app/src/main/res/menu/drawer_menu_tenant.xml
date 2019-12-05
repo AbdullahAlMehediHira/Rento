@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile_tenant"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_landlord_info_tenant"
+            android:icon="@drawable/ic_landlordinfo"
+            android:title="LandLord Info" />
+        <item
+            android:id="@+id/nav_announcement_tenant"
+            android:icon="@drawable/ic_announcement"
+            android:title="Announcements" />
+        <item
+            android:id="@+id/nav_payment_tenant"
+            android:icon="@drawable/ic_payment"
+            android:title="Payment" />
+
+    </group>
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_emergency_tenant"
+                android:icon="@drawable/ic_emergency"
+                android:title="Emergency" />
+        </menu>
+    </item>
+</menu>

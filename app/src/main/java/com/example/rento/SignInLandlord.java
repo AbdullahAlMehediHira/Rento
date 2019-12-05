@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class SignInLandlord extends AppCompatActivity implements OnClickListener
     private EditText SignInLandlordText, SignInLandlordPassword;
     private Button SignInLandlordButton;
     private TextView SignUpLandlordTextView;
+    private ProgressBar progressBar;
     private FirebaseAuth mAuth;
 
 
@@ -38,6 +40,7 @@ public class SignInLandlord extends AppCompatActivity implements OnClickListener
         SignInLandlordPassword = findViewById(R.id.SignInLandlordPasswordId);
         SignInLandlordButton = findViewById(R.id.SignInLandlordButtonId);
         SignUpLandlordTextView = findViewById(R.id.SignUpLandlordTextViewId);
+        progressBar = findViewById(R.id.landlordProgressId);
 
         SignInLandlordButton.setOnClickListener(this);
         SignUpLandlordTextView.setOnClickListener(this);
@@ -83,9 +86,12 @@ public class SignInLandlord extends AppCompatActivity implements OnClickListener
             SignInLandlordPassword.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
+
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful())
                 {
                     Intent landlordclassintent = new Intent(getApplicationContext(), LandlordProfile.class);

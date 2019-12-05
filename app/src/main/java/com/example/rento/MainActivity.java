@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         this.setTitle("HOME");
 
         textView = findViewById(R.id.textView);
-        tenantButton = findViewById(R.id.tenantbuttonId);
+        tenantButton = findViewById(R.id.tenantButtonId);
         landlordButton = findViewById(R.id.landlordButtonId);
 
         tenantButton.setOnClickListener(this);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 Intent landlordSignInIntent = new Intent(getApplicationContext(), SignInLandlord.class);
                 startActivity(landlordSignInIntent);
                 break;
-            case R.id.tenantbuttonId:
+            case R.id.tenantButtonId:
                 Intent tenantSignInIntent = new Intent(getApplicationContext(), SignInTenant.class);
                 startActivity(tenantSignInIntent);
                 break;

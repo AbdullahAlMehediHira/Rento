@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class SignInTenant extends AppCompatActivity implements OnClickListener {
     private Button SignInTenantButton;
     private TextView SignUpTextView;
     private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class SignInTenant extends AppCompatActivity implements OnClickListener {
         SignInTenantPassword = findViewById(R.id.SignInTenantPasswordId);
         SignInTenantButton = findViewById(R.id.SignInTenantButtonId);
         SignUpTextView = findViewById(R.id.SignUpTenantTextViewId);
+        progressBar = findViewById(R.id.tenantProgressId);
 
         SignInTenantButton.setOnClickListener(this);
         SignUpTextView.setOnClickListener(this);
@@ -83,10 +86,12 @@ public class SignInTenant extends AppCompatActivity implements OnClickListener {
             SignInTenantPassword.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful())
                 {
                     Intent tenantclassintent = new Intent(getApplicationContext(), TenantProfile.class);
