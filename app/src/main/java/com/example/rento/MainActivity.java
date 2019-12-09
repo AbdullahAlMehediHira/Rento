@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         tenantButton.setOnClickListener(this);
         landlordButton.setOnClickListener(this);
+
     }
 
     @Override
