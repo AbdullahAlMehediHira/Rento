@@ -1,6 +1,7 @@
 package com.example.rento;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,8 +46,6 @@ public class LandlordProfileFragment extends Fragment {
         });
 
 
-
-
     return v;
     }
 
@@ -57,12 +56,32 @@ public class LandlordProfileFragment extends Fragment {
         String city = landlordcity.getText().toString().trim();
         String zip = landlordzip.getText().toString().trim();
 
-        String key = databaseReference.push().getKey();
-
-        Landlord landlord = new Landlord(firstname, lastname, address, city, zip);
-
-        databaseReference.child(key).setValue(landlord);
-        Toast.makeText(getContext(), "Profile updated", Toast.LENGTH_SHORT).show();
+        if(TextUtils.isEmpty(firstname)){
+            Toast.makeText(getContext(), "Enter your first name", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(lastname)){
+            Toast.makeText(getContext(), "Enter your last name", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(address)){
+            Toast.makeText(getContext(), "Enter your address", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(city)){
+            Toast.makeText(getContext(), "Enter your city", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(zip)){
+            Toast.makeText(getContext(), "Enter your zip", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            databaseReference.push();
+            Landlord landlord = new Landlord(firstname, lastname, address, city, zip);
+            databaseReference.setValue(landlord);
+            Toast.makeText(getContext(), "Profile updated", Toast.LENGTH_SHORT).show();
+            landlordfirstName.setText("");
+            landlordlastName.setText("");
+            landlordaddress.setText("");
+            landlordcity.setText("");
+            landlordzip.setText("");
+        }
     }
 
 }
