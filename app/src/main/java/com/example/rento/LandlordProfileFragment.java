@@ -36,7 +36,7 @@ public class LandlordProfileFragment extends Fragment {
         landlordaddress = v.findViewById(R.id.address);
         landlordzip = v.findViewById(R.id.zipcode);
 
-        editInfoButton = v.findViewById(R.id.editinfo);
+        editInfoButton = v.findViewById(R.id.makechange);
 
         editInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override

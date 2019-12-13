@@ -42,7 +42,7 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordProfileFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordProfileView()).commit();
             navigationView.setCheckedItem(R.id.nav_Profile);
         }
     }
@@ -66,7 +66,7 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordAnnouncementFragment()).commit();
                 break;
             case R.id.nav_Profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordProfileFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordProfileView()).commit();
                 break;
             case R.id.nav_alart:
                 Toast.makeText(this, "PAY THE BILL", Toast.LENGTH_SHORT).show();
@@ -88,7 +88,7 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if(item.getItemId()==R.id.SignOutMenuId)
+        if(item.getItemId() == R.id.SignOutMenuId)
         {
             FirebaseAuth.getInstance().signOut();
             finish();
