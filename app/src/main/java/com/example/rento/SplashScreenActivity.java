@@ -17,7 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             .withFullScreen()
             .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(3000)
-                .withBackgroundColor(Color.parseColor("#b2beb5"))
+                .withBackgroundColor(Color.parseColor("#899b8d"))
                 .withBeforeLogoText("RentO")
                 .withAfterLogoText("Your Rental Solution")
                 .withLogo(R.mipmap.ic_launcher_round);
