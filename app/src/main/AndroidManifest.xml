@@ -4,7 +4,7 @@
     package="com.example.rento">
 
     <dist:module dist:instant="true" />
-
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,6 +23,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignInLandlord" />
         <activity android:name=".SignInTenant" />
+        <activity android:name="LandlordProfileView"/>
         <activity android:name=".SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -53,6 +57,17 @@ public class SignUpLandlord extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Landlord");
         mAuth = FirebaseAuth.getInstance();
 
+
+        SignInLandlordTextView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent SignInLandlordIntent = new Intent(getApplicationContext(), SignInLandlord.class);
+                startActivity(SignInLandlordIntent);
+            }
+        });
+
+
+
         SignUpLandlordButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,34 +77,66 @@ public class SignUpLandlord extends AppCompatActivity {
                 final String email = SignUpLandlordText.getText().toString().trim();
                 String password = SignUpLandlordPassword.getText().toString().trim();
 
-                if(RadioMale.isChecked()){
+                if (RadioMale.isChecked()) {
                     gender = "Male";
                 }
-                if(RadioFemale.isChecked()){
+                if (RadioFemale.isChecked()) {
                     gender = "Female";
                 }
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(SignUpLandlord.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    LandlordSignUp landlordSignUp = new LandlordSignUp(fullname, username, email, gender, address);
-                                    FirebaseDatabase.getInstance().getReference("landlord").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                            .setValue(landlordSignUp).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            Toast.makeText(SignUpLandlord.this, "Registration Complete", Toast.LENGTH_SHORT).show();
-                                            startActivity(new Intent(getApplicationContext(), SignInLandlord.class));
-                                        }
-                                    });
+                if (TextUtils.isEmpty(fullname)) {
+                    Toast.makeText(getApplicationContext(), "Enter your full name", Toast.LENGTH_SHORT).show();
+                    return;
+                } if (TextUtils.isEmpty(username)) {
+                    Toast.makeText(getApplicationContext(), "Enter your user name", Toast.LENGTH_SHORT).show();
+                    return;
+                } if (email.isEmpty()) {
+                    SignUpLandlordText.setError("Enter an email address");
+                    SignUpLandlordText.requestFocus();
+                    return;
+                } if (gender.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Enter your gender", Toast.LENGTH_SHORT).show();
+                    return;
+                } if (password.length() < 6) {
+                    SignUpLandlordPassword.setError("Minimum length of password should be 6");
+                    SignUpLandlordPassword.requestFocus();
+                    return;
+                } if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    SignUpLandlordText.setError("Enter a valid email address");
+                    SignUpLandlordText.requestFocus();
+                    return;
+                }
+                progressBar.setVisibility(View.VISIBLE);
 
-                                } else {
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(SignUpLandlord.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    progressBar.setVisibility(View.GONE);
+
+                                    if (task.isSuccessful()) {
+                                        LandlordData landlordData = new LandlordData(fullname, username, email, gender, address);
+                                        FirebaseDatabase.getInstance().getReference("landlord").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue(landlordData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(SignUpLandlord.this, "Registration Complete", Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(getApplicationContext(), SignInLandlord.class));
+                                            }
+                                        });
+
+                                    } else {
+                                        if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                            Toast.makeText(getApplicationContext(), "User already registered", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
+                                        }
+
+
+                                    }
 
                                 }
-
-                            }
-                        });
+                            });
 
 
             }
@@ -145,7 +192,7 @@ public class SignUpLandlord extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
-                    LandlordSignUp landlordSignUp = new LandlordSignUp(email);
+                    LandlordData landlordSignUp = new LandlordData(email);
                     FirebaseDatabase.getInstance().getReference("Landlords").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(landlordSignUp).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
