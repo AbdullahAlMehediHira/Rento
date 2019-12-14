@@ -28,7 +28,6 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landlord_profile);
-        this.setTitle("Landlord");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -43,7 +42,7 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordProfileFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordProfileView()).commit();
             navigationView.setCheckedItem(R.id.nav_Profile);
         }
     }
@@ -67,7 +66,7 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordAnnouncementFragment()).commit();
                 break;
             case R.id.nav_Profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordProfileFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordProfileView()).commit();
                 break;
             case R.id.nav_alart:
                 Toast.makeText(this, "PAY THE BILL", Toast.LENGTH_SHORT).show();
@@ -78,5 +77,25 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.signout_menu_layout, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId() == R.id.SignOutMenuId)
+        {
+            FirebaseAuth.getInstance().signOut();
+            finish();
+            Intent intent = new Intent(getApplicationContext(), SignInLandlord.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
