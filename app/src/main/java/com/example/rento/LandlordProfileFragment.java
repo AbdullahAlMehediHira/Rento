@@ -1,3 +1,4 @@
+/*
 package com.example.rento;
 
 import android.os.Bundle;
@@ -85,3 +86,4 @@ public class LandlordProfileFragment extends Fragment {
     }
 
 }
+*/

@@ -23,7 +23,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignInLandlord" />
         <activity android:name=".SignInTenant" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -5,12 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,34 +18,88 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUpLandlord extends AppCompatActivity implements OnClickListener {
+public class SignUpLandlord extends AppCompatActivity {
 
-    private EditText SignUpLandlordText, SignUpLandlordPassword;
+    private EditText SignUpLandlordText, SignUpLandlordPassword, SignUpLandlordFullname, SignUpLandlordUsername;
     private Button SignUpLandlordButton;
+    private RadioButton RadioMale, RadioFemale;
+    private String gender = "", address = "";
     private TextView SignInLandlordTextView;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
+
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_landlord);
         this.setTitle("Landlord SIGNUP");
-        mAuth = FirebaseAuth.getInstance();
 
-        SignUpLandlordText = findViewById(R.id.SignUpLandlordTextId);
+        SignUpLandlordFullname = findViewById(R.id.signUpLandlordFullnameId);
+        SignUpLandlordUsername = findViewById(R.id.signUpLandlordUsernameId);
+        SignUpLandlordText = findViewById(R.id.SignUpLandlordEmailId);
         SignUpLandlordPassword = findViewById(R.id.SignUpLandlordPasswordId);
         SignUpLandlordButton = findViewById(R.id.SignUpLandlordButtonId);
         SignInLandlordTextView = findViewById(R.id.SignInLandlordTextViewId);
+        RadioMale = findViewById(R.id.RadioMale);
+        RadioFemale = findViewById(R.id.RadioFemale);
+
         progressBar = findViewById(R.id.landlordProgressId);
 
-        SignUpLandlordButton.setOnClickListener(this);
-        SignInLandlordTextView.setOnClickListener(this);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Landlord");
+        mAuth = FirebaseAuth.getInstance();
+
+        SignUpLandlordButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final String fullname = SignUpLandlordFullname.getText().toString().trim();
+                final String username = SignUpLandlordUsername.getText().toString().trim();
+                final String email = SignUpLandlordText.getText().toString().trim();
+                String password = SignUpLandlordPassword.getText().toString().trim();
+
+                if(RadioMale.isChecked()){
+                    gender = "Male";
+                }
+                if(RadioFemale.isChecked()){
+                    gender = "Female";
+                }
+
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(SignUpLandlord.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    LandlordSignUp landlordSignUp = new LandlordSignUp(fullname, username, email, gender, address);
+                                    FirebaseDatabase.getInstance().getReference("landlord").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .setValue(landlordSignUp).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(SignUpLandlord.this, "Registration Complete", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getApplicationContext(), SignInLandlord.class));
+                                        }
+                                    });
+
+                                } else {
+
+                                }
+
+                            }
+                        });
+
+
+            }
+        });
+
     }
 
-    @Override
+}
+
+   /* @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.SignUpLandlordButtonId:
@@ -61,7 +115,7 @@ public class SignUpLandlord extends AppCompatActivity implements OnClickListener
     }
 
     private void landlordRegister() {
-        String email = SignUpLandlordText.getText().toString().trim();
+        final String email = SignUpLandlordText.getText().toString().trim();
         String password = SignUpLandlordPassword.getText().toString().trim();
 
         if (email.isEmpty()) {
@@ -91,8 +145,15 @@ public class SignUpLandlord extends AppCompatActivity implements OnClickListener
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Registration is Successful", Toast.LENGTH_SHORT).show();
+                    LandlordSignUp landlordSignUp = new LandlordSignUp(email);
+                    FirebaseDatabase.getInstance().getReference("Landlords").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(landlordSignUp).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(getApplicationContext(), "Registration is Successful", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), SignInLandlord.class));
 
+                        }
+                    });
                 }else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException)
                     {
@@ -106,3 +167,4 @@ public class SignUpLandlord extends AppCompatActivity implements OnClickListener
 
     }
 }
+*/
