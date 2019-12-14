@@ -82,7 +82,7 @@ public class LandlordProfileFragment extends Fragment {
                         .setValue(landlordData).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(getContext(), "Registration Complete", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Profile Updated", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
