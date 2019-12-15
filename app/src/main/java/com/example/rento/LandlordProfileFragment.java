@@ -1,5 +1,6 @@
 package com.example.rento;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -12,29 +13,35 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LandlordProfileFragment extends Fragment {
 
-   public LandlordProfileFragment(){
+    public LandlordProfileFragment() {
 
-   }
+    }
 
     private Button editInfoButton;
-    private EditText landlordfirstName, landlordlastName, landlordaddress, landlordcity, landlordzip;
+    private EditText landlordusername, landlordaddress;
     DatabaseReference databaseReference;
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v  = inflater.inflate(R.layout.fragment_landlord_profile, container, false);
+        View v = inflater.inflate(R.layout.fragment_landlord_profile, container, false);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Landlords");
+        databaseReference = FirebaseDatabase.getInstance().getReference("landlord");
 
-        landlordfirstName = v.findViewById(R.id.firstname);
-        landlordlastName = v.findViewById(R.id.lastname);
-        landlordcity = v.findViewById(R.id.city);
+        landlordusername = v.findViewById(R.id.username);
         landlordaddress = v.findViewById(R.id.address);
-        landlordzip = v.findViewById(R.id.zipcode);
+
 
         editInfoButton = v.findViewById(R.id.makechange);
 
@@ -46,42 +53,46 @@ public class LandlordProfileFragment extends Fragment {
         });
 
 
-    return v;
+        return v;
     }
 
     public void saveData() {
-        String firstname = landlordfirstName.getText().toString().trim();
-        String lastname = landlordlastName.getText().toString().trim();
-        String address = landlordaddress.getText().toString().trim();
-        String city = landlordcity.getText().toString().trim();
-        String zip = landlordzip.getText().toString().trim();
 
-        if(TextUtils.isEmpty(firstname)){
-            Toast.makeText(getContext(), "Enter your first name", Toast.LENGTH_SHORT).show();
-        }
-        else if(TextUtils.isEmpty(lastname)){
-            Toast.makeText(getContext(), "Enter your last name", Toast.LENGTH_SHORT).show();
-        }
-        else if(TextUtils.isEmpty(address)){
-            Toast.makeText(getContext(), "Enter your address", Toast.LENGTH_SHORT).show();
-        }
-        else if(TextUtils.isEmpty(city)){
-            Toast.makeText(getContext(), "Enter your city", Toast.LENGTH_SHORT).show();
-        }
-        else if(TextUtils.isEmpty(zip)){
-            Toast.makeText(getContext(), "Enter your zip", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            databaseReference.push();
-            Landlord landlord = new Landlord(firstname, lastname, address, city, zip);
-            databaseReference.setValue(landlord);
-            Toast.makeText(getContext(), "Profile updated", Toast.LENGTH_SHORT).show();
-            landlordfirstName.setText("");
-            landlordlastName.setText("");
-            landlordaddress.setText("");
-            landlordcity.setText("");
-            landlordzip.setText("");
-        }
+        databaseReference = FirebaseDatabase.getInstance().getReference("landlord").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final String fullname = dataSnapshot.child("Fullname").getValue().toString();
+                final String gender = dataSnapshot.child("Gender").getValue().toString();
+                final String email = dataSnapshot.child("Email").getValue().toString();
+
+                final String username = landlordusername.getText().toString().trim();
+                final String address = landlordaddress.getText().toString().trim();
+
+                if (TextUtils.isEmpty(username)) {
+                    Toast.makeText(getContext(), "Enter your last name", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(address)) {
+                    Toast.makeText(getContext(), "Enter your address", Toast.LENGTH_SHORT).show();
+                }
+
+
+                LandlordData landlordData = new LandlordData(fullname, username, email, gender, address);
+                FirebaseDatabase.getInstance().getReference("landlord").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .setValue(landlordData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(getContext(), "Profile Updated", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
-
 }
+

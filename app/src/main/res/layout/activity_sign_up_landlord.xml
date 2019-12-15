@@ -1,63 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:padding="10dp"
     android:orientation="vertical"
     tools:context=".SignUpLandlord">
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/SignUpLandlordTextId"
-        android:drawableLeft="@drawable/username"
-        android:layout_gravity="center"
-        android:inputType="textEmailAddress"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:hint="Email"
-        android:textColorHint="@color/cardview_dark_background"
-        android:textColor="@color/cardview_dark_background"/>
-
-    <EditText
         android:id="@+id/SignUpLandlordPasswordId"
         android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
         android:drawableLeft="@drawable/password"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/cardview_dark_background"
-        android:textColorHint="@color/cardview_dark_background" />
+        android:textColorHint="@color/cardview_dark_background"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpLandlordEmailId" />
+
+    <EditText
+        android:id="@+id/signUpLandlordUsernameId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="User Name"
+        android:inputType="textEmailAddress"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="@color/cardview_dark_background"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpLandlordFullnameId" />
+
+    <EditText
+        android:id="@+id/signUpLandlordFullnameId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:hint="Full Name"
+        android:inputType="textEmailAddress"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="@color/cardview_dark_background"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/SignUpLandlordEmailId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:drawableLeft="@drawable/username"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/cardview_dark_background"
+        android:textColorHint="@color/cardview_dark_background"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpLandlordUsernameId" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpLandlordPasswordId">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender: "
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <RadioButton
+            android:id="@+id/RadioMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Male"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/RadioFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Female"
+            android:textSize="20dp" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/SignUpLandlordButtonId"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         android:text="@string/sign_up_button"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/SignInLandlordTextViewId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="41dp"
         android:inputType="text"
         android:text="@string/textview_user_signin"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpLandlordButtonId"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
-        android:visibility="gone"
-        android:layout_gravity="center"
         android:id="@+id/landlordProgressId"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="368dp"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

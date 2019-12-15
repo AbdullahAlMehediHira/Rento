@@ -13,12 +13,12 @@
         android:layout_height="21dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Last Name"
-        android:textSize="15dp"
+        android:text="User Name"
         android:textColor="@color/colorPrimary"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toStartOf="@+id/lastnameview"
+        app:layout_constraintEnd_toStartOf="@+id/UsernameView"
         app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -28,12 +28,12 @@
         android:layout_height="21dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Address"
-        android:textSize="15dp"
+        android:text="Email"
         android:textColor="@color/colorPrimary"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintEnd_toStartOf="@+id/addressview"
+        app:layout_constraintEnd_toStartOf="@+id/EmailView"
         app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -43,13 +43,13 @@
         android:layout_height="21dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="City"
-        android:textSize="15dp"
+        android:text="Gender"
         android:textColor="@color/colorPrimary"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
-        app:layout_constraintEnd_toStartOf="@+id/cityview"
-        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintEnd_toStartOf="@+id/GenderView"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -57,18 +57,18 @@
         android:layout_width="88dp"
         android:layout_height="21dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="340dp"
-        android:text="Zip code"
-        android:textSize="15dp"
+        android:layout_marginBottom="288dp"
+        android:text="Address"
         android:textColor="@color/colorPrimary"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/zipcodeview"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintEnd_toStartOf="@+id/AddressView"
+        app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/firstnameview"
+        android:id="@+id/FullnameView"
         android:layout_width="280dp"
         android:layout_height="21dp"
         android:layout_marginTop="152dp"
@@ -79,18 +79,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/lastnameview"
+        android:id="@+id/UsernameView"
         android:layout_width="280dp"
         android:layout_height="21dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:hint="Enter your Last Name:"
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstnameview" />
+        app:layout_constraintTop_toBottomOf="@+id/FullnameView" />
 
     <TextView
-        android:id="@+id/addressview"
+        android:id="@+id/EmailView"
         android:layout_width="280dp"
         android:layout_height="21dp"
         android:layout_marginTop="16dp"
@@ -98,10 +98,10 @@
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastnameview" />
+        app:layout_constraintTop_toBottomOf="@+id/UsernameView" />
 
     <TextView
-        android:id="@+id/cityview"
+        android:id="@+id/GenderView"
         android:layout_width="280dp"
         android:layout_height="21dp"
         android:layout_marginTop="16dp"
@@ -109,10 +109,10 @@
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addressview" />
+        app:layout_constraintTop_toBottomOf="@+id/EmailView" />
 
     <TextView
-        android:id="@+id/zipcodeview"
+        android:id="@+id/AddressView"
         android:layout_width="280dp"
         android:layout_height="21dp"
         android:hint="Enter your Zip Code:"
@@ -120,7 +120,7 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityview"
+        app:layout_constraintTop_toBottomOf="@+id/GenderView"
         app:layout_constraintVertical_bias="0.042" />
 
     <Button
@@ -133,7 +133,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zipcodeview"
+        app:layout_constraintTop_toBottomOf="@+id/AddressView"
         app:layout_constraintVertical_bias="0.26" />
 
     <TextView
@@ -142,12 +142,13 @@
         android:layout_height="21dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="150dp"
-        android:text="First Name"
-        android:textSize="15dp"
+        android:layout_marginBottom="16dp"
+        android:text="Full Name"
         android:textColor="@color/colorPrimary"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/firstnameview"
+        app:layout_constraintEnd_toStartOf="@+id/FullnameView"
         app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
