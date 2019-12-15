@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,14 +21,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUpTenant extends AppCompatActivity implements OnClickListener{
-    private EditText SignUpTenantText, SignUpTenantPassword;
+public class SignUpTenant extends AppCompatActivity {
+    private EditText SignUpTenantEmail, SignUpTenantPassword, SignUpTenantFullname, SignUpTenantPhone;
     private Button SignUpTenantButton;
+    private String gender = "";
     private TextView SignInTenantTextView;
+    private RadioButton tenantRadioMale, tenantRadioFemale;
+
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
-
 
 
     @Override
@@ -36,77 +41,102 @@ public class SignUpTenant extends AppCompatActivity implements OnClickListener{
         this.setTitle("Tenant SIGNUP");
         mAuth = FirebaseAuth.getInstance();
 
-        SignUpTenantText = findViewById(R.id.SignUpTenantTextId);
+        SignUpTenantEmail = findViewById(R.id.SignUpTenantEmailId);
+        SignUpTenantFullname = findViewById(R.id.signUpTeanatFullnameId);
+        SignUpTenantPhone = findViewById(R.id.signUpTenantPhoneId);
+        tenantRadioFemale = findViewById(R.id.TenantRadioFemale);
+        tenantRadioMale = findViewById(R.id.TenantRadioMale);
         SignUpTenantPassword = findViewById(R.id.SignUpTenantPasswordId);
         SignUpTenantButton = findViewById(R.id.SignUpTenantButtonId);
         SignInTenantTextView = findViewById(R.id.SignInTenantTextViewId);
         progressBar = findViewById(R.id.tenantProgressId);
 
-        SignUpTenantButton.setOnClickListener(this);
-        SignInTenantTextView.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.SignUpTenantButtonId:
-                tenantRegister();
-                break;
-
-            case R.id.SignInTenantTextViewId:
-                Intent SignInTenantIntent = new Intent(getApplicationContext(), SignInTenant.class);
-                startActivity(SignInTenantIntent);
-                break;
-
-        }
-
-    }
-
-    private void tenantRegister() {
-        String email = SignUpTenantText.getText().toString().trim();
-        String password = SignUpTenantPassword.getText().toString().trim();
-
-        if (email.isEmpty()) {
-            SignUpTenantText.setError("Enter an email address");
-            SignUpTenantText.requestFocus();
-            return;
-        }
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            SignUpTenantText.setError("Enter a valid email address");
-            SignUpTenantText.requestFocus();
-            return;
-        }
-        if (password.isEmpty()) {
-            SignUpTenantPassword.setError("Enter a password");
-            SignUpTenantPassword.requestFocus();
-            return;
-        }
-        if (password.length() < 6) {
-            SignUpTenantPassword.setError("Minimum length of password should be 6");
-            SignUpTenantPassword.requestFocus();
-            return;
-        }
-        progressBar.setVisibility(View.VISIBLE);
-
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        SignInTenantTextView.setOnClickListener(new OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                progressBar.setVisibility(View.GONE);
-                if(task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Registration is Successful", Toast.LENGTH_SHORT).show();
-
-                }else{
-                   if(task.getException() instanceof FirebaseAuthUserCollisionException)
-                   {
-                       Toast.makeText(getApplicationContext(), "User already registered", Toast.LENGTH_SHORT).show();
-                   }else{
-                       Toast.makeText(getApplicationContext(), "Error: "+task.getException(), Toast.LENGTH_SHORT).show();
-                   }
-                }
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SignInTenant.class);
+                startActivity(intent);
             }
         });
 
+        SignUpTenantButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final String fullname = SignUpTenantFullname.getText().toString().trim();
+                final String phone = SignUpTenantPhone.getText().toString().trim();
+                final String email = SignUpTenantEmail.getText().toString().trim();
+                String password = SignUpTenantPassword.getText().toString().trim();
+
+                if (tenantRadioMale.isChecked()) {
+                    gender = "Male";
+                }
+                if (tenantRadioFemale.isChecked()) {
+                    gender = "Female";
+                }
+
+                if (TextUtils.isEmpty(fullname)) {
+                    Toast.makeText(getApplicationContext(), "Enter your full name", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(phone)) {
+                    Toast.makeText(getApplicationContext(), "Enter your phone number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (email.isEmpty()) {
+                    SignUpTenantEmail.setError("Enter an email address");
+                    SignUpTenantEmail.requestFocus();
+                    return;
+                }
+                if (gender.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Enter your gender", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (password.length() < 6) {
+                    SignUpTenantPassword.setError("Minimum length of password should be 6");
+                    SignUpTenantPassword.requestFocus();
+                    return;
+                }
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    SignUpTenantEmail.setError("Enter a valid email address");
+                    SignUpTenantEmail.requestFocus();
+                    return;
+                }
+                progressBar.setVisibility(View.VISIBLE);
+
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(SignUpTenant.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                progressBar.setVisibility(View.GONE);
+
+                                if (task.isSuccessful()) {
+                                    TenantData tenantData = new TenantData(fullname, phone, email, gender);
+                                    FirebaseDatabase.getInstance().getReference("tenant").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .setValue(tenantData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(SignUpTenant.this, "Registration Complete", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getApplicationContext(), SignInTenant.class));
+                                        }
+                                    });
+
+                                } else {
+                                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                        Toast.makeText(getApplicationContext(), "User already registered", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
+                                    }
+
+
+                                }
+
+                            }
+                        });
+
+
+            }
+        });
 
     }
 }
