@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="12dp"
-        android:drawableLeft="@drawable/ic_portrait_black_24dp"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
         android:background="@drawable/edit_round"
         android:hint="User Name"
         android:inputType="textEmailAddress"
