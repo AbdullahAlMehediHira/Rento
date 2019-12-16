@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:orientation="vertical"
-    android:background="#D8DDF1"
+    android:background="@drawable/backg"
     tools:context=".SignUpLandlord">
 
     <EditText
