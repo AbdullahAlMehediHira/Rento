@@ -20,7 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withBackgroundColor(Color.parseColor("#899b8d"))
                 .withBeforeLogoText("RentO")
                 .withAfterLogoText("Your Rental Solution")
-                .withLogo(R.mipmap.icon);
+                .withLogo(R.mipmap.icon2);
 
         config.getBeforeLogoTextView().setTextColor(Color.BLACK);
         config.getAfterLogoTextView().setTextColor(Color.BLACK);
