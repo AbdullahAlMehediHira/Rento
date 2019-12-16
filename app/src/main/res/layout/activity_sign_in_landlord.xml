@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/btn_round"
         android:layout_gravity="center"
+        android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:text="@string/sign_in_button"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
