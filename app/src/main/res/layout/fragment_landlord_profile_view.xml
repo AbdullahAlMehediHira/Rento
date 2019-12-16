@@ -71,22 +71,26 @@
         android:id="@+id/FullnameView"
         android:layout_width="280dp"
         android:layout_height="21dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="148dp"
         android:hint="Enter your FirstName:"
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/UsernameView"
         android:layout_width="280dp"
         android:layout_height="21dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:hint="Enter your Last Name:"
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/FullnameView" />
 
     <TextView
@@ -98,6 +102,8 @@
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UsernameView" />
 
     <TextView
@@ -109,6 +115,8 @@
         android:textColor="#000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailView" />
 
     <TextView
@@ -120,8 +128,10 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GenderView"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.073" />
 
     <Button
         android:id="@+id/editinfo"
