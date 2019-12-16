@@ -16,7 +16,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         EasySplashScreen  config = new EasySplashScreen(SplashScreenActivity.this)
             .withFullScreen()
             .withTargetActivity(MainActivity.class)
-                .withSplashTimeOut(3000)
+                .withSplashTimeOut(2000)
                 .withBackgroundColor(Color.parseColor("#899b8d"))
                 .withBeforeLogoText("RentO")
                 .withAfterLogoText("Your Rental Solution")
