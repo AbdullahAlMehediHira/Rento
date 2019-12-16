@@ -11,7 +11,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:id="@+id/SignInTenantTextId"
         android:layout_gravity="center"
         android:drawableLeft="@drawable/username"
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:background="@drawable/edit_round"
         android:drawableLeft="@drawable/password"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_gravity="center"
         android:hint="Password"
         android:inputType="textPassword"
