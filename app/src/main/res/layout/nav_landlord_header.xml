@@ -12,17 +12,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher_round"/>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
+        android:id="@+id/LandlordHeaderUsernameId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User email"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+        android:hint="UserName"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:id="@+id/LandlordHeaderEmailId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="UserEmail"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
 </LinearLayout>

@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -16,18 +18,26 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LandlordProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private TextView llusername, llemail;
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private NavigationView navigationView;
+    private DatabaseReference databaseReference;
     FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landlord_profile);
+        this.setTitle("Landlord");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -41,11 +51,38 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        View navHeaderView = navigationView.getHeaderView(0);
+
+        llemail = navHeaderView.findViewById(R.id.LandlordHeaderEmailId);
+        llusername = navHeaderView.findViewById(R.id.LandlordHeaderUsernameId);
+
+        FirebaseDatabase.getInstance().getReference("landlord").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.getValue() != null) {
+                    String user = dataSnapshot.child("UserName").getValue().toString();
+                    String emailid = dataSnapshot.child("Email").getValue().toString();
+
+                    llusername.setText(user);
+                    llemail.setText(emailid);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LandlordProfileView()).commit();
             navigationView.setCheckedItem(R.id.nav_Profile);
         }
+
     }
+
 
     @Override
     public void onBackPressed() {
@@ -88,8 +125,7 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if(item.getItemId() == R.id.SignOutMenuId)
-        {
+        if (item.getItemId() == R.id.SignOutMenuId) {
             FirebaseAuth.getInstance().signOut();
             finish();
             Intent intent = new Intent(getApplicationContext(), SignInLandlord.class);
