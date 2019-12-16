@@ -7,14 +7,16 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:orientation="vertical"
+    android:background="#D8DDF1"
     tools:context=".SignUpLandlord">
 
     <EditText
         android:id="@+id/SignUpTenantPasswordId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/password"
+        android:background="@drawable/edit_round"
         android:hint="Password"
         android:inputType="textPassword"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -30,9 +32,10 @@
     <EditText
         android:id="@+id/signUpTenantPhoneId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:hint="Phone number"
+        android:background="@drawable/edit_round"
         android:inputType="number"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/cardview_dark_background"
@@ -47,7 +50,8 @@
     <EditText
         android:id="@+id/signUpTeanatFullnameId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_round"
         android:layout_marginTop="16dp"
         android:hint="Full Name"
         android:inputType="textEmailAddress"
@@ -64,8 +68,9 @@
     <EditText
         android:id="@+id/signUpTeanatUsernameId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/edit_round"
         android:hint="User Name"
         android:inputType="textEmailAddress"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -81,7 +86,8 @@
     <EditText
         android:id="@+id/SignUpTenantEmailId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_round"
         android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/username"
         android:hint="Email"
@@ -136,6 +142,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_round"
         android:layout_marginTop="52dp"
         android:text="@string/sign_up_button"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
