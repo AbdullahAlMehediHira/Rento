@@ -60,8 +60,8 @@ public class TenantProfile extends AppCompatActivity implements NavigationView.O
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.getValue() != null) {
-                        String user = dataSnapshot.child("Username").getValue().toString();
-                        String email = dataSnapshot.child("Email").getValue().toString();
+                        String user = dataSnapshot.child("username").getValue().toString();
+                        String email = dataSnapshot.child("email").getValue().toString();
 
                         tnusername.setText(user);
                         tnemail.setText(email);

@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpTenant extends AppCompatActivity {
-    private EditText SignUpTenantEmail, SignUpTenantPassword, SignUpTenantFullname, SignUpTenantUsername, SignUpTenantPhone;
+    private EditText SignUpTenantEmail, SignUpTenantsLandlordEmail, SignUpTenantPassword, SignUpTenantFullname, SignUpTenantUsername, SignUpTenantPhone;
     private String gender = "";
     private Button SignUpTenantButton;
     private TextView SignInTenantTextView;
@@ -42,12 +42,13 @@ public class SignUpTenant extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         SignUpTenantEmail = findViewById(R.id.SignUpTenantEmailId);
+        SignUpTenantsLandlordEmail = findViewById(R.id.SignUpTenantsLandlordEmailId);
         SignUpTenantFullname = findViewById(R.id.signUpTeanatFullnameId);
         SignUpTenantUsername = findViewById(R.id.signUpTeanatUsernameId);
         SignUpTenantPhone = findViewById(R.id.signUpTenantPhoneId);
         tenantRadioFemale = findViewById(R.id.TenantRadioFemale);
         tenantRadioMale = findViewById(R.id.TenantRadioMale);
-        SignUpTenantPassword = findViewById(R.id.SignUpTenantPasswordId);
+        SignUpTenantPassword = findViewById(R.id.signUpTenantPasswordId);
         SignUpTenantButton = findViewById(R.id.SignUpTenantButtonId);
         SignInTenantTextView = findViewById(R.id.SignInTenantTextViewId);
         progressBar = findViewById(R.id.tenantProgressId);
@@ -68,6 +69,7 @@ public class SignUpTenant extends AppCompatActivity {
                 final String phone = SignUpTenantPhone.getText().toString().trim();
                 final String username = SignUpTenantUsername.getText().toString().trim();
                 final String email = SignUpTenantEmail.getText().toString().trim();
+                final String landlordemail = SignUpTenantsLandlordEmail.getText().toString().trim();
                 String password = SignUpTenantPassword.getText().toString().trim();
 
                 if (tenantRadioMale.isChecked()) {
@@ -76,7 +78,11 @@ public class SignUpTenant extends AppCompatActivity {
                 if (tenantRadioFemale.isChecked()) {
                     gender = "Female";
                 }
-
+                if(TextUtils.isEmpty(landlordemail)){
+                    SignUpTenantPassword.setError("Enter you Landlord's Email");
+                    SignUpTenantPassword.requestFocus();
+                    return;
+                }
                 if (TextUtils.isEmpty(fullname)) {
                     Toast.makeText(getApplicationContext(), "Enter your full name", Toast.LENGTH_SHORT).show();
                     return;
@@ -117,7 +123,7 @@ public class SignUpTenant extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
 
                                 if (task.isSuccessful()) {
-                                    TenantData tenantData = new TenantData(fullname, username, phone, email, gender);
+                                    TenantData tenantData = new TenantData(fullname, username, phone, email, gender, landlordemail);
                                     FirebaseDatabase.getInstance().getReference("tenant").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                             .setValue(tenantData).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

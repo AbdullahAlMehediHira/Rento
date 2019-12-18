@@ -58,9 +58,10 @@ public class TenantProfileFragment extends Fragment {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final String fullname = dataSnapshot.child("Fullname").getValue().toString();
-                final String gender = dataSnapshot.child("Gender").getValue().toString();
-                final String email = dataSnapshot.child("Email").getValue().toString();
+                final String fullname = dataSnapshot.child("fullname").getValue().toString();
+                final String gender = dataSnapshot.child("gender").getValue().toString();
+                final String email = dataSnapshot.child("email").getValue().toString();
+                final String landlordemail = dataSnapshot.child("landlordEmail").getValue().toString();
 
                 final String tnusername = tenantusername.getText().toString().trim();
                 final String tnphoneNo = tenantphone.getText().toString().trim();
@@ -72,7 +73,7 @@ public class TenantProfileFragment extends Fragment {
                 }
 
 
-                TenantData tenantData = new TenantData(fullname, tnusername, tnphoneNo, email, gender);
+                TenantData tenantData = new TenantData(fullname, tnusername, tnphoneNo, email, gender, landlordemail);
                 FirebaseDatabase.getInstance().getReference("tenant").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .setValue(tenantData).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

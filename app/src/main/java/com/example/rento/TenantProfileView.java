@@ -67,11 +67,11 @@ public class TenantProfileView extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final String fullname = dataSnapshot.child("Fullname").getValue().toString();
-                final String username = dataSnapshot.child("Username").getValue().toString();
-                final String gender = dataSnapshot.child("Gender").getValue().toString();
-                final String email = dataSnapshot.child("Email").getValue().toString();
-                final String phone = dataSnapshot.child("PhoneNo").getValue().toString();
+                final String fullname = dataSnapshot.child("fullname").getValue().toString();
+                final String username = dataSnapshot.child("username").getValue().toString();
+                final String gender = dataSnapshot.child("gender").getValue().toString();
+                final String email = dataSnapshot.child("email").getValue().toString();
+                final String phone = dataSnapshot.child("phoneNo").getValue().toString();
 
                 tnfn.setText(fullname);
                 tnun.setText(username);

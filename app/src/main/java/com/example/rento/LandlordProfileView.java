@@ -63,11 +63,11 @@ public class LandlordProfileView extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String fullname = dataSnapshot.child("Fullname").getValue().toString();
-                String username = dataSnapshot.child("UserName").getValue().toString();
-                String gender = dataSnapshot.child("Gender").getValue().toString();
-                String email = dataSnapshot.child("Email").getValue().toString();
-                String address = dataSnapshot.child("Address").getValue().toString();
+                String fullname = dataSnapshot.child("fullname").getValue().toString();
+                String username = dataSnapshot.child("username").getValue().toString();
+                String gender = dataSnapshot.child("gender").getValue().toString();
+                String email = dataSnapshot.child("email").getValue().toString();
+                String address = dataSnapshot.child("address").getValue().toString();
 
                 llfn.setText(fullname);
                 llun.setText(username);
