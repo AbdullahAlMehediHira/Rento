@@ -66,7 +66,7 @@ public class LandlordProfileView extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String fullname = dataSnapshot.child("fullname").getValue().toString();
-                String username = dataSnapshot.child("userName").getValue().toString();
+                String username = dataSnapshot.child("username").getValue().toString();
                 String gender = dataSnapshot.child("gender").getValue().toString();
                 String email = dataSnapshot.child("email").getValue().toString();
                 String address = dataSnapshot.child("address").getValue().toString();

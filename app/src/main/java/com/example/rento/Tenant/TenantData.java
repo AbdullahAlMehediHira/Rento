@@ -1,43 +1,43 @@
 package com.example.rento.Tenant;
 
 public class TenantData {
-    private String Email, PhoneNo, Fullname, Username, Gender, LandlordEmail;
+    private String email, phoneNo, fullname, username, gender, landlordEmail;
 
     public TenantData(){
 
     }
 
-    public TenantData(String fullname, String username, String phoneNo, String email, String gender, String landlordEmail) {
-        Fullname = fullname;
-        Username = username;
-        Email = email;
-        PhoneNo = phoneNo;
-        Gender = gender;
-        LandlordEmail = landlordEmail;
+    public TenantData(String tenantfullname, String tenantusername, String tenantphoneNo, String tenantemail, String tenantgender, String tenantlandlordEmail) {
+        fullname = tenantfullname;
+        username = tenantusername;
+        email = tenantemail;
+        phoneNo = tenantphoneNo;
+        gender = tenantgender;
+        landlordEmail = tenantlandlordEmail;
 
     }
 
-    public String getEmail() {
-        return Email;
+    public String getemail() {
+        return email;
     }
 
-    public String getPhoneNo() {
-        return PhoneNo;
+    public String getphoneNo() {
+        return phoneNo;
     }
 
-    public String getFullname() {
-        return Fullname;
+    public String getfullname() {
+        return fullname;
     }
 
-    public String getUsername() {
-        return Username;
+    public String getusername() {
+        return username;
     }
 
-    public String getGender() {
-        return Gender;
+    public String getgender() {
+        return gender;
     }
 
-    public String getLandlordEmail() {
-        return LandlordEmail;
+    public String getlandlordEmail() {
+        return landlordEmail;
     }
 }

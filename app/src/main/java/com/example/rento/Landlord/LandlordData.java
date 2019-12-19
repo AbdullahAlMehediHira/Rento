@@ -1,57 +1,57 @@
 package com.example.rento.Landlord;
 
 public class LandlordData {
-    private String Email, UserName, Fullname, Gender, Address;
+    private String email, username, fullname, gender, address;
 
     public LandlordData(){
 
     }
 
-    public LandlordData(String fullname, String username, String email, String gender, String address ) {
-        Fullname = fullname;
-        Email = email;
-        UserName = username;
-        Gender = gender;
-        Address = address;
+    public LandlordData(String landlordfullname, String landlordusername, String landlordemail, String landlordgender, String landlordaddress ) {
+        fullname = landlordfullname;
+        email = landlordemail;
+        username = landlordusername;
+        gender = landlordgender;
+        address = landlordaddress;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getemail() {
+        return email;
     }
 
-    public void setEmail(String email) {
-        Email = email;
+    public void setemail(String landlordemail) {
+        email = landlordemail;
     }
 
-    public String getUserName() {
-        return UserName;
+    public String getusername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        UserName = userName;
+    public void setusername(String landlordusername) {
+        username = landlordusername;
     }
 
-    public String getFullname() {
-        return Fullname;
+    public String getfullname() {
+        return fullname;
     }
 
-    public void setFullname(String fullname) {
-        Fullname = fullname;
+    public void setfullname(String landlordfullname) {
+        fullname = landlordfullname;
     }
 
-    public String getGender() {
-        return Gender;
+    public String getgender() {
+        return gender;
     }
 
-    public void setGender(String gender) {
-        Gender = gender;
+    public void setGender(String landlordgender) {
+        gender = landlordgender;
     }
 
-    public String getAddress() {
-        return Address;
+    public String getaddress() {
+        return address;
     }
 
-    public void setAddress(String address) {
-        Address = address;
+    public void setaddress(String landlordaddress) {
+        address = landlordaddress;
     }
 }
