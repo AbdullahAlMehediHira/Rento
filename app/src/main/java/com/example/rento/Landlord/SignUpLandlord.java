@@ -54,7 +54,7 @@ public class SignUpLandlord extends AppCompatActivity {
 
         progressBar = findViewById(R.id.landlordProgressId);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Landlord");
+        databaseReference = FirebaseDatabase.getInstance().getReference("landlord");
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -145,73 +145,3 @@ public class SignUpLandlord extends AppCompatActivity {
     }
 
 }
-
-   /* @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.SignUpLandlordButtonId:
-                landlordRegister();
-                break;
-
-            case R.id.SignInLandlordTextViewId:
-                Intent SignInLandlordIntent = new Intent(getApplicationContext(), SignInLandlord.class);
-                startActivity(SignInLandlordIntent);
-                break;
-        }
-
-    }
-
-    private void landlordRegister() {
-        final String email = SignUpLandlordText.getText().toString().trim();
-        String password = SignUpLandlordPassword.getText().toString().trim();
-
-        if (email.isEmpty()) {
-            SignUpLandlordText.setError("Enter an email address");
-            SignUpLandlordText.requestFocus();
-            return;
-        }
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            SignUpLandlordText.setError("Enter a valid email address");
-            SignUpLandlordText.requestFocus();
-            return;
-        }
-        if (password.isEmpty()) {
-            SignUpLandlordPassword.setError("Enter a password");
-            SignUpLandlordPassword.requestFocus();
-            return;
-        }
-        if (password.length() < 6) {
-            SignUpLandlordPassword.setError("Minimum length of password should be 6");
-            SignUpLandlordPassword.requestFocus();
-            return;
-        }
-        progressBar.setVisibility(View.VISIBLE);
-
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                progressBar.setVisibility(View.GONE);
-                if(task.isSuccessful()){
-                    LandlordData landlordSignUp = new LandlordData(email);
-                    FirebaseDatabase.getInstance().getReference("Landlords").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(landlordSignUp).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(getApplicationContext(), "Registration is Successful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), SignInLandlord.class));
-
-                        }
-                    });
-                }else{
-                    if(task.getException() instanceof FirebaseAuthUserCollisionException)
-                    {
-                        Toast.makeText(getApplicationContext(), "User already registered", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getApplicationContext(), "Error: "+task.getException(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
-
-    }
-}
-*/

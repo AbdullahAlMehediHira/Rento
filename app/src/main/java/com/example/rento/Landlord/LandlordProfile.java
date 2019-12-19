@@ -62,7 +62,7 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.getValue() != null) {
-                    String user = dataSnapshot.child("username").getValue().toString();
+                    String user = dataSnapshot.child("userName").getValue().toString();
                     String emailid = dataSnapshot.child("email").getValue().toString();
 
                     llusername.setText(user);
