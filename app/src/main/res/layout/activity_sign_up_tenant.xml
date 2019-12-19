@@ -8,7 +8,7 @@
     android:padding="10dp"
     android:orientation="vertical"
     android:background="@drawable/backg"
-    tools:context=".SignUpLandlord">
+    tools:context=".Landlord.SignUpLandlord">
 
 
     <EditText

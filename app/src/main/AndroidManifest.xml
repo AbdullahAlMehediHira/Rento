@@ -14,16 +14,16 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"></activity>
         <activity
-            android:name=".LandlordProfile"
+            android:name=".Landlord.LandlordProfile"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SignUpLandlord" />
-        <activity android:name=".SignUpTenant" />
+        <activity android:name=".Landlord.SignUpLandlord" />
+        <activity android:name=".Tenant.SignUpTenant" />
         <activity
-            android:name=".TenantProfile"
+            android:name=".Tenant.TenantProfile"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SignInLandlord" />
-        <activity android:name=".SignInTenant" />
-        <activity android:name="LandlordProfileView"/>
+        <activity android:name=".Landlord.SignInLandlord" />
+        <activity android:name=".Tenant.SignInTenant" />
+        <activity android:name=".Landlord.LandlordProfileView"/>
         <activity android:name=".SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

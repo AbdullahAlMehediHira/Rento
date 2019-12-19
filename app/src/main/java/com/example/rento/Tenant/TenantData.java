@@ -1,4 +1,4 @@
-package com.example.rento;
+package com.example.rento.Tenant;
 
 public class TenantData {
     private String Email, PhoneNo, Fullname, Username, Gender, LandlordEmail;

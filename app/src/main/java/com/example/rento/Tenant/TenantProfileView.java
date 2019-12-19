@@ -1,4 +1,4 @@
-package com.example.rento;
+package com.example.rento.Tenant;
 
 
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.rento.R;
+import com.example.rento.Tenant.TenantProfileFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
