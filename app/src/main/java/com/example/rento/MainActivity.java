@@ -9,6 +9,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.rento.Landlord.SignInLandlord;
+import com.example.rento.Tenant.SignInTenant;
+
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private TextView textView;

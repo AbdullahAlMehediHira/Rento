@@ -1,4 +1,4 @@
-package com.example.rento;
+package com.example.rento.Landlord;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.rento.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -61,8 +62,8 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.getValue() != null) {
-                    String user = dataSnapshot.child("UserName").getValue().toString();
-                    String emailid = dataSnapshot.child("Email").getValue().toString();
+                    String user = dataSnapshot.child("username").getValue().toString();
+                    String emailid = dataSnapshot.child("email").getValue().toString();
 
                     llusername.setText(user);
                     llemail.setText(emailid);

@@ -1,4 +1,4 @@
-package com.example.rento;
+package com.example.rento.Landlord;
 
 
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.rento.Landlord.LandlordProfileFragment;
+import com.example.rento.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,11 +65,11 @@ public class LandlordProfileView extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String fullname = dataSnapshot.child("Fullname").getValue().toString();
-                String username = dataSnapshot.child("UserName").getValue().toString();
-                String gender = dataSnapshot.child("Gender").getValue().toString();
-                String email = dataSnapshot.child("Email").getValue().toString();
-                String address = dataSnapshot.child("Address").getValue().toString();
+                String fullname = dataSnapshot.child("fullname").getValue().toString();
+                String username = dataSnapshot.child("username").getValue().toString();
+                String gender = dataSnapshot.child("gender").getValue().toString();
+                String email = dataSnapshot.child("email").getValue().toString();
+                String address = dataSnapshot.child("address").getValue().toString();
 
                 llfn.setText(fullname);
                 llun.setText(username);
@@ -85,3 +87,20 @@ public class LandlordProfileView extends Fragment {
         super.onStart();
     }
 }
+
+/* public void onStart() {
+        landlorddatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String username = dataSnapshot.child("username").getValue().toString();
+                ValueEventListener Event
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        super.onStart();
+    }*/
