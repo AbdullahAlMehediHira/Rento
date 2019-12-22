@@ -1,19 +1,19 @@
 package com.example.rento.Tenant;
 
 public class TenantData {
-    private String email, phoneNo, fullname, username, gender, landlordEmail;
+    private String email, phoneNo, fullname, username, gender, landlordName;
 
     public TenantData(){
 
     }
 
-    public TenantData(String tenantfullname, String tenantusername, String tenantphoneNo, String tenantemail, String tenantgender, String tenantlandlordEmail) {
+    public TenantData(String tenantfullname, String tenantusername, String tenantphoneNo, String tenantemail, String tenantgender, String tenantlandlordName) {
         fullname = tenantfullname;
         username = tenantusername;
         email = tenantemail;
         phoneNo = tenantphoneNo;
         gender = tenantgender;
-        landlordEmail = tenantlandlordEmail;
+        landlordName = tenantlandlordName;
 
     }
 
@@ -37,7 +37,7 @@ public class TenantData {
         return gender;
     }
 
-    public String getlandlordEmail() {
-        return landlordEmail;
+    public String getlandlordName() {
+        return landlordName;
     }
 }

@@ -62,7 +62,7 @@ public class TenantProfileFragment extends Fragment {
                 final String fullname = dataSnapshot.child("fullname").getValue().toString();
                 final String gender = dataSnapshot.child("gender").getValue().toString();
                 final String email = dataSnapshot.child("email").getValue().toString();
-                final String landlordemail = dataSnapshot.child("landlordEmail").getValue().toString();
+                final String landlordemail = dataSnapshot.child("landlordName").getValue().toString();
 
                 final String tnusername = tenantusername.getText().toString().trim();
                 final String tnphoneNo = tenantphone.getText().toString().trim();

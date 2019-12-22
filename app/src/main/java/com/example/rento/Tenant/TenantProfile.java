@@ -56,7 +56,8 @@ public class TenantProfile extends AppCompatActivity implements NavigationView.O
         tnemail = navHeaderView.findViewById(R.id.TenantHeaderEmailId);
         tnusername = navHeaderView.findViewById(R.id.TenantHeaderUsernameId);
 
-        FirebaseDatabase.getInstance().getReference("tenant").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("tenant").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

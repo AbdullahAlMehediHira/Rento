@@ -87,3 +87,20 @@ public class LandlordProfileView extends Fragment {
         super.onStart();
     }
 }
+
+/* public void onStart() {
+        landlorddatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String username = dataSnapshot.child("username").getValue().toString();
+                ValueEventListener Event
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        super.onStart();
+    }*/
