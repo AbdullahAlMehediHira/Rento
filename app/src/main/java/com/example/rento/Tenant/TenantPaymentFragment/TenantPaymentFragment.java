@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.rento.R;
-import com.example.rento.Tenant.TenantPaymentAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,39 +42,6 @@ public class TenantPaymentFragment extends Fragment {
                     case "January":
                         FragmentTransaction fragmentTransaction1 = getFragmentManager().beginTransaction();
                         fragmentTransaction1.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentJanuary()).commit();
-                    case "February":
-                        FragmentTransaction fragmentTransaction2 = getFragmentManager().beginTransaction();
-                        fragmentTransaction2.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentFebruary()).commit();
-                    case "March":
-                        FragmentTransaction fragmentTransaction3 = getFragmentManager().beginTransaction();
-                        fragmentTransaction3.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentMarch()).commit();
-                    case "April":
-                        FragmentTransaction fragmentTransaction4 = getFragmentManager().beginTransaction();
-                        fragmentTransaction4.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentApril()).commit();
-                    case "May":
-                        FragmentTransaction fragmentTransaction5 = getFragmentManager().beginTransaction();
-                        fragmentTransaction5.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentMay()).commit();
-                    case "June":
-                        FragmentTransaction fragmentTransaction6 = getFragmentManager().beginTransaction();
-                        fragmentTransaction6.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentJune()).commit();
-                    case "July":
-                        FragmentTransaction fragmentTransaction7 = getFragmentManager().beginTransaction();
-                        fragmentTransaction7.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentJuly()).commit();
-                    case "August":
-                        FragmentTransaction fragmentTransaction8 = getFragmentManager().beginTransaction();
-                        fragmentTransaction8.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentAugust()).commit();
-                    case "September":
-                        FragmentTransaction fragmentTransaction9 = getFragmentManager().beginTransaction();
-                        fragmentTransaction9.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentSeptember()).commit();
-                    case "October":
-                        FragmentTransaction fragmentTransaction10 = getFragmentManager().beginTransaction();
-                        fragmentTransaction10.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentOctober()).commit();
-                    case "November":
-                        FragmentTransaction fragmentTransaction11 = getFragmentManager().beginTransaction();
-                        fragmentTransaction11.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentNovember()).commit();
-                    case "December":
-                        FragmentTransaction fragmentTransaction12 = getFragmentManager().beginTransaction();
-                        fragmentTransaction12.replace(R.id.tenant_fragment_container, new TenantPaymentFragmentDecember()).commit();
                 }
                 return false;
             }
