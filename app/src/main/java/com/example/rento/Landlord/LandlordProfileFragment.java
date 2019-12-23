@@ -69,7 +69,7 @@ public class LandlordProfileFragment extends Fragment {
 
                 final String username = landlordusername.getText().toString().trim();
                 final String address = landlordaddress.getText().toString().trim();
-
+                final String Uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
                 if (TextUtils.isEmpty(username)) {
                     Toast.makeText(getContext(), "Enter your last name", Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(address)) {

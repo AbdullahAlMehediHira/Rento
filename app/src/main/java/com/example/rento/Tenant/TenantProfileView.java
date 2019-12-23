@@ -55,7 +55,7 @@ public class TenantProfileView extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.tenant_fragment_container, new TenantProfileFragment()).commit();
+                fragmentTransaction.replace(R.id.tenant_fragment_container, new SignUpTenant.TenantProfileFragment()).commit();
             }
         });
 
@@ -91,5 +91,3 @@ public class TenantProfileView extends Fragment {
     }
 
 }
-
-

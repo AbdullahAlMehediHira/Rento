@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUpTenantsLandlordNameId" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUpTenantsLandlordEmailId" />
 
     <EditText
         android:id="@+id/signUpTenantPhoneId"
@@ -95,7 +95,7 @@
         android:background="@drawable/edit_round"
         android:drawableLeft="@drawable/ic_person_outline_black_24dp"
         android:hint="Your Email"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/cardview_dark_background"
         android:textColorHint="@color/cardview_dark_background"
@@ -107,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signUpTenantPhoneId" />
 
     <EditText
-        android:id="@+id/SignUpTenantsLandlordNameId"
+        android:id="@+id/SignUpTenantsLandlordEmailId"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"

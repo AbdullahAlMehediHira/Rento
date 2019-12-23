@@ -112,6 +112,9 @@ public class LandlordProfile extends AppCompatActivity implements NavigationView
             case R.id.nav_message:
                 Toast.makeText(this, "Call me at 9:00", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.nav_RentPost:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RentPostHandler()).commit();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

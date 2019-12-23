@@ -1,4 +1,4 @@
-package com.example.rento.Tenant.TenantPaymentFragment;
+package com.example.rento.Tenant;
 
 
 import android.os.Bundle;
@@ -71,7 +71,7 @@ public class TenantPaymentFragmentJanuary extends Fragment {
                     public void onComplete(@NonNull Task<Void> task) {
                         TenantPaymentRecords tenantPaymentRecords = new TenantPaymentRecords(tenantData, "January", true);
                         mdb = FirebaseFirestore.getInstance();
-                        DocumentReference TenRef = mdb.collection("Payment Records").document(FirebaseAuth.getInstance().getUid());
+                        DocumentReference TenRef = mdb.collection("Payment Records").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
                         TenRef.set(tenantPaymentRecords).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

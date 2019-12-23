@@ -5,7 +5,9 @@
 
     <dist:module dist:instant="true" />
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
     <application
+        android:name=".TenantDataClient"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -32,6 +34,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="@string/MAP_API_KEY"></meta-data>
     </application>
 
 </manifest>

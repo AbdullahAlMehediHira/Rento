@@ -1,4 +1,4 @@
-package com.example.rento.Tenant.TenantPaymentFragment;
+package com.example.rento.Tenant;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.rento.R;
+import com.example.rento.Tenant.TenantPaymentAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,7 +47,7 @@ public class TenantPaymentFragment extends Fragment {
                 return false;
             }
         });
-        
+
         return v;
     }
 

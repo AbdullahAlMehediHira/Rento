@@ -20,6 +20,10 @@
             android:id="@+id/nav_payment_tenant"
             android:icon="@drawable/ic_payment"
             android:title="Payment" />
+        <item
+            android:id="@+id/nav_map_View"
+            android:icon="@drawable/map_icon"
+            android:title="Map View"/>
 
     </group>
     <item android:title="Communicate">

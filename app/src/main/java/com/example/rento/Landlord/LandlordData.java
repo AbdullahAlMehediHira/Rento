@@ -1,57 +1,55 @@
 package com.example.rento.Landlord;
 
-public class LandlordData {
+public class LandlordData  {
     private String email, username, fullname, gender, address;
 
     public LandlordData(){
 
     }
 
-    public LandlordData(String landlordfullname, String landlordusername, String landlordemail, String landlordgender, String landlordaddress ) {
-        fullname = landlordfullname;
-        email = landlordemail;
-        username = landlordusername;
-        gender = landlordgender;
-        address = landlordaddress;
+    public LandlordData(String fullname, String username, String email, String gender, String address) {
+        this.fullname = fullname;
+        this.email = email;
+        this.username = username;
+        this.gender = gender;
+        this.address = address;
+
     }
+
+    public void setGender(String gender){
+        this.gender = gender;
+    }
+
 
     public String getemail() {
         return email;
     }
 
-    public void setemail(String landlordemail) {
-        email = landlordemail;
-    }
+
 
     public String getusername() {
-        return username;
+        return this.username;
     }
 
-    public void setusername(String landlordusername) {
-        username = landlordusername;
-    }
+
 
     public String getfullname() {
         return fullname;
     }
 
-    public void setfullname(String landlordfullname) {
-        fullname = landlordfullname;
-    }
 
     public String getgender() {
         return gender;
     }
 
-    public void setGender(String landlordgender) {
-        gender = landlordgender;
-    }
+
 
     public String getaddress() {
-        return address;
+        return this.address;
     }
 
-    public void setaddress(String landlordaddress) {
-        address = landlordaddress;
-    }
+
+
+
+
 }

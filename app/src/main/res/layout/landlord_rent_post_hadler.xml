@@ -10,40 +10,43 @@
     android:orientation="vertical"
     tools:context=".Landlord.SignUpLandlord">
 
+
     <EditText
         android:id="@+id/Num_Of_Room"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/edit_round"
-        android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
-        android:hint="Password"
-        android:inputType="textPassword"
+
+        android:hint="Number Of Rooms: "
+        android:inputType="text"
+        android:orientation="vertical"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/cardview_dark_background"
         android:textColorHint="@color/cardview_dark_background"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUpLandlordEmailId" />
+        app:layout_constraintTop_toBottomOf="@+id/Cost" />
 
     <EditText
         android:id="@+id/Cost"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:layout_marginTop="56dp"
+
         android:background="@drawable/edit_round"
-        android:hint="User Name"
-        android:inputType="textEmailAddress"
+        android:hint="Cost:"
+        android:inputType="text"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/cardview_dark_background"
         android:textColorHint="@color/cardview_dark_background"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Square_Feet" />
 
@@ -51,38 +54,20 @@
         android:id="@+id/Square_Feet"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
+
         android:background="@drawable/edit_round"
-        android:drawableLeft="@drawable/ic_portrait_black_24dp"
-        android:hint="Full Name"
-        android:inputType="textEmailAddress"
+        android:hint="Square Feet:"
+        android:inputType="text"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/cardview_dark_background"
         android:textColorHint="@color/cardview_dark_background"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/SignUpLandlordEmailId"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-        android:hint="Email"
-        android:background="@drawable/edit_round"
-        android:inputType="textEmailAddress"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/cardview_dark_background"
-        android:textColorHint="@color/cardview_dark_background"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Cost" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -93,62 +78,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Num_Of_Room">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gender: "
-            android:textSize="20dp"
-            android:textStyle="italic" />
-
-        <RadioButton
-            android:id="@+id/RadioMale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="Male"
-            android:textSize="20dp" />
-
-        <RadioButton
-            android:id="@+id/RadioFemale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="Female"
-            android:textSize="20dp" />
-    </RadioGroup>
+        app:layout_constraintTop_toBottomOf="@+id/Num_Of_Room"/>
 
     <Button
         android:id="@+id/LandlordRentPostButton"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="172dp"
         android:background="@drawable/btn_round"
-        android:textStyle="bold"
-        android:layout_marginTop="80dp"
-        android:text="@string/sign_up_button"
+        android:text="@string/RentPostButton"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <TextView
-        android:id="@+id/SignInLandlordTextViewId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="41dp"
-        android:inputType="text"
-        android:text="@string/textview_user_signin"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.753"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LandlordRentPostButton"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/landlordProgressId"
@@ -159,5 +104,20 @@
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/signInTenantTextViewId"
+        android:layout_width="344dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="16dp"
+        android:text="Current location is the reference location"
+        android:inputType="none"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.623"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpTenantButtonId"
+        app:layout_constraintVertical_bias="0.645" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,8 @@
     <string name="textview_user_signin">ইতিমধ্যে নিবন্ধভুক্ত হলে, সাইন ইন করুন।</string>
     <string name="nav_drawer_open">Open navigation drawer</string>
     <string name="nav_drawer_close">Close navigation drawer</string>
-
+    <string name="MAP_API_KEY">AIzaSyAyFm2NNFwhpi81nOm2gso3XOsOrnOi0x4</string>
+    <string name="RentPostButton">Post</string>
 
     <string name="group1">Select month</string>
 
