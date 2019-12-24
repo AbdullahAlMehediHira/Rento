@@ -63,7 +63,7 @@ public class LandlordManagementFragment extends Fragment {
         return tenantview;
     }
 
-     public void onStart() {
+    public void onStart() {
         landlorddatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

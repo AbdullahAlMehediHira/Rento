@@ -1,4 +1,4 @@
-package com.example.rento.Tenant.TenantPaymentFragment;
+package com.example.rento.Tenant;
 
 import com.example.rento.Tenant.TenantData;
 
