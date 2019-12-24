@@ -38,10 +38,11 @@
 
         <Button
             android:id="@+id/retrieveData"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tap"
-            android:visibility="invisible"/>
+            android:text="Get Info"
+            android:visibility="visible" />
     </LinearLayout>
 
     <LinearLayout

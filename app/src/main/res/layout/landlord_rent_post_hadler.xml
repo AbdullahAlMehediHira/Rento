@@ -5,9 +5,8 @@
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backg"
-    android:padding="10dp"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".Landlord.SignUpLandlord">
 
 
@@ -15,7 +14,7 @@
         android:id="@+id/Num_Of_Room"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/edit_round"
 
         android:hint="Number Of Rooms: "
@@ -27,7 +26,7 @@
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Cost" />
 
@@ -35,7 +34,7 @@
         android:id="@+id/Cost"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="20dp"
 
         android:background="@drawable/edit_round"
         android:hint="Cost:"
@@ -46,7 +45,7 @@
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Square_Feet" />
 
@@ -78,7 +77,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Num_Of_Room"/>
+        app:layout_constraintTop_toBottomOf="@+id/Num_Of_Room" />
 
     <Button
         android:id="@+id/LandlordRentPostButton"
@@ -110,8 +109,8 @@
         android:layout_width="344dp"
         android:layout_height="45dp"
         android:layout_marginBottom="16dp"
-        android:text="Current location is the reference location"
         android:inputType="none"
+        android:text="Current location is the reference location"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
